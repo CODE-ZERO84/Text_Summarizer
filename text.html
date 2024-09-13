@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html>
+    <html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon"
+        href="https://www.summarizer.org/favicon.ico?v=10.70">
+    <meta name="_token" content="zc0Ub6BLABYUlBSoNZt8lAeWgd6TY2bMaveXpHCG" />
+            <title>AI Summarizer</title>
+    <meta name="description" content="Our AI Summarizer is a free summary generator that can instantly summarize any text, articles and essays with the best key points." />
+    
+                        <link rel="canonical" href="https://www.summarizer.org" />
+            <link rel="alternate" hreflang="x-default" href="https://www.summarizer.org" />
+            <link rel="alternate" hreflang="en"
+                href="https://www.summarizer.org" />
+                                                                            <link rel="alternate" hreflang="es"
+                        href="https://www.summarizer.org/es/resumidor-de-textos" />
+                                                                <link rel="alternate" hreflang="Id"
+                        href="https://www.summarizer.org/Id/ringkasan-online" />
+                                                                <link rel="alternate" hreflang="br"
+                        href="https://www.summarizer.org/br/resumidor-de-texto" />
+                                                                <link rel="alternate" hreflang="fr"
+                        href="https://www.summarizer.org/fr/résumé-de-texte" />
+                                                                <link rel="alternate" hreflang="nl"
+                        href="https://www.summarizer.org/nl/samenvatten" />
+                                                                <link rel="alternate" hreflang="it"
+                        href="https://www.summarizer.org/it/riassunto-online" />
+                                                                <link rel="alternate" hreflang="de"
+                        href="https://www.summarizer.org/de/text-zusammenfassen" />
+                                                
+<script>
+    var is_mobile = 0;
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://www.summarizer.org/web_assets/frontend/css/style.css?v=10.70">
+
+    <meta name="ahrefs-site-verification" content="e40143eb6e3738e070adf329f10553e29055ad66f0011e7f0b24b4a2598228a6">
+    <meta name="ahrefs-site-verification" content="935d473ecbcd7a77e8b4235d0662bd47570c5bea1020eaef8d0cd32374b11138">
+            <script async data-cfasync="false"
+            src="https://cdn.snigelweb.com/adengine/summarizer.org/loader.js"
+            type="text/javascript"></script>
+    
+        <link rel="stylesheet"
+            href="https://www.summarizer.org/web_assets/frontend/css/rephrasing-style.css?v=10.70">
+        <style>
+            #output-summary-content ul {
+                padding: 0;
+            }
+
+            #premium_result_container>img {
+                width: 100%;
+            }
+
+            #premium_result_container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                align-items: center;
+            }
+
+            #premium_result_container .premium_box_container {
+                display: flex;
+                position: absolute;
+                border-radius: 20px;
+                flex-direction: column;
+                background: var(--color-light-gray);
+                border: 1px solid var(--color-light-silver);
+                padding: 20px 15px;
+                align-items: center;
+            }
+
+            #premium_result_container .premium_box_container>img {
+                width: 25px;
+            }
+
+            .summorg-input-holder {
+                width: 50%;
+
+                & #add-url {
+                    border-right: 1px solid var(--color-light-silver);
+
+
+                }
+
+            }
+
+            #url-input {
+                margin: 16px auto !important;
+                width: 100% !important;
+                transition: all 0.3s ease-in-out;
+                position: relative;
+
+            }
+
+            #url {
+                width: 100%;
+                max-width: 90%;
+                border: 1px solid rgba(51, 51, 51, 1);
+                border-radius: 8px;
+                padding: 0px 8px;
+                min-height: 35px;
+                padding-right: 30px;
+
+            }
+
+            .loader {
+                border: 4px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 4px solid #3498db;
+                width: 20px;
+                height: 20px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+                position: absolute;
+                top: 36%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            @-webkit-keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                }
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .blur {
+                filter: blur(1px);
+                pointer-events: none;
+                opacity: 0.7;
+            }
+
+
+            @media (max-width: 425px) {
+                .tool_options {
+                    gap: 1.2rem;
+                }
+
+                .summorg-input-holder p {
+                    font-size: 10px !important;
+                }
+
+            }
+
+            #clear-input,
+            #clear-url {
+                right: 18px !important;
+                top: 30% !important;
+            }
+        </style>
+        <style>
+        .plan_upgrade_popup {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-header {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .close {
+            cursor: pointer;
+        }
+
+        .modal-content {
+            background-color: #FFFFFF;
+            margin: 10% auto;
+            padding: 20px;
+            border: none;
+            padding-bottom: 10px;
+            max-width: 600px;
+            text-align: center;
+            height: max-content;
+            margin: 10px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 0.5rem;
+        }
+
+        .head-1 {
+            flex-direction: column;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .modal-head {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+            color: #333333;
+        }
+
+        .modal-des {
+            font-weight: 400;
+            font-size: 16px !important;
+            line-height: 24px;
+            white-space: normal;
+            color: #333333;
+        }
+
+        .tabs {
+            background: #EDEDED;
+            width: max-content;
+            border-radius: 35px;
+            padding: 4px;
+            gap: 10px;
+            display: flex;
+        }
+
+        .tablinks {
+            padding: 5px 15px;
+            border-radius: 35px;
+            color: #101010;
+            font-size: 14px;
+            line-height: 20px;
+            border: none;
+            background: no-repeat;
+            cursor: pointer;
+        }
+
+        .tablinks.active {
+            background: #FFFFFF !important;
+        }
+
+        .tabcontent {
+            width: 100%;
+            justify-content: space-between;
+            display: flex;
+            gap: 8px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .plan-popup {
+            margin-bottom: 10px;
+            flex: 1;
+            border: 1px solid #E5E5E5;
+            border-radius: 15px;
+            padding: 16px;
+            display: flex;
+            cursor: pointer;
+            min-width: 160px;
+        }
+
+        .plan-popup label {
+            color: #101010;
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            width: 100%;
+            position: relative;
+            gap: 1rem;
+            flex-direction: column;
+            line-height: 20px;
+            align-items: baseline;
+            cursor: pointer;
+            justify-content: center;
+
+            & .type {
+                font-size: 24px;
+                font-weight: 700;
+                color: #101010;
+            }
+        }
+
+
+        .plan-popup input[type="radio"]:checked+label,
+        .plan-popup.active {
+            border: 1px solid #101010 !important;
+            position: relative;
+        }
+
+        .plan-popup.active::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #fff 0%, #80ffe0 17.92%, #bad0ff 32.22%, #b797fb 51.04%, #fcc1ac 69.69%, #fbeba6 85.31%, #fff 100%);
+            z-index: 999;
+            filter: blur(5px);
+            transition: all 0.5s ease;
+            opacity: 1;
+        }
+
+        .plan-popup .custom-radio-label::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 1px solid #EFEFEF;
+        }
+
+        .plan-popup .custom-radio-label::after {
+            content: '✓';
+            /* Unicode for checkmark */
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-right: 5px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: transparent;
+            font-weight: 600;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .plan-popup.active .custom-radio-label::before {
+            background-color: #101010 !important;
+            border: none !important;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & a:last-child {
+                padding: 6px 32px !important;
+            }
+        }
+
+        .modal-footer a:first-child {
+            font-size: 16px;
+            line-height: 24px;
+            color: #8D8F94;
+        }
+
+        @media (max-width: 700px) {
+
+            .tabcontent,
+            .modal-footer {
+                flex-direction: column
+            }
+
+            .modal-footer {
+                gap: 0.5rem;
+            }
+
+        }
+    </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JR464DPKS"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-7JR464DPKS');
+</script>
+    
+            <style>
+        .no-www-warning {
+            background-color: #2b4258cf;
+            font-size: 1rem;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+                
+    <header class="container-fluid">
+    <div class="container flex-row responsive-flex-col top-header items-center">
+        <div class="flex-1 flex-col flex-start">
+            <a href="" class="top-header-logo-link">
+                                    <img src="https://www.summarizer.org/web_assets/frontend/img/logo.png?v=1.8"
+                        width="41px" height="30px" alt="summarizer.org logo"/>
+                    <p class="logo-p">Summarizer</p>
+                            </a>
+            <div class="mobile-menu-trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="flex-row flex-6 nav-links  flex-justify-sb">
+            <div class="flex-col">
+                <div class="flex-row gap-30 responsive-flex-col" style="justify-content: center">
+                    <div class="tools__container flex-row gap-30 responsive-flex-col">
+                    <a class="non-active" href="">AI Paraphrasing tool </a>
+                    </div>
+                    
+
+                </div>
+            </div>
+            <div class="">
+                <div class="flex-row responsive-flex-col" style="gap:10px">
+                    <div class="flex-row" style="gap:10px;width:max-content">
+
+                        </a>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</header>
+    
+    
+                    <!-- TOOL SECTION START -->
+    <section class="main_tool_section">
+        <div class="container tool-section flex-column">
+                            <!-- top ad summarizer.org -->
+    <div id="top_header_ad" class="smz-ad bg-light">
+        <div id="adngin-top_leaderboard-0"></div>
+    </div>
+                        <div class="tool__container">
+                <div class="flex-col controls">
+                    <!-- Controls -->
+                    <div class='flex-row tool_options flex-justify-sb items-center gap-5'>
+                        <div class="flex-col" style="flex: 1">
+                            <div class="modes__list" style="position:relative">
+                                <span data-mode="1"
+                                    class="mode normal_mode active">Developed By XOR</span>
+                                                                    <div id="planModal" class="plan_upgrade_popup d-none">
+    <div class="modal-content">
+        <div class="modal-header flex">
+            <div class="flex head-1">
+                <div class="modal-head"></div>
+                <p class="modal-des"></p>
+            </div>
+            <div class="close flex">
+                <img width="12" height="12" src="https://www.summarizer.org/web_assets/frontend/img/cross.svg" />
+            </div>
+        </div>
+
+        <div class="tabs">
+                                                                <button class="tablinks active gradient-hover-effect"
+                        data-target="#ai-assistant">AI Assistant</button>
+                                                                                                                            <button class="tablinks "
+                        data-target="#all-in-one">All in One</button>
+                                    </div>
+
+                                                <div id="ai-assistant" class="tabcontent ">
+                                                                                                    <div class="plan-popup active" data-id="5"
+                                data-paypro="91338">
+                                
+                                <input class="d-none" type="radio" id="ai-assistantweek-plan"
+                                    name="plan" value="5" checked>
+                            </div>
+                                                                                                                            
+                                                                                                                
+                                                            </div>
+                                                                                            <div id="all-in-one" class="tabcontent d-none">
+                                                                                                    <div class="plan-popup active" data-id="8"
+                                data-paypro="91341">
+                                <input class="d-none" type="radio" id="all-in-oneweek-plan"
+                                    name="plan" value="8" checked>
+                            </div>
+                                                                                                            
+                                                                                                                
+                                                            </div>
+                    
+    </div>
+</div>
+
+                                                            </div>
+                        </div>
+                        <div class='summary_range'>
+                            <div class="summary-length">
+                                <span class="range">
+                                    <p>Short</p>
+                                    <div class="range__slider" lenth_long_title="long"
+                                        lenth_short_title="Short">
+                                        <input type="range" step="1" min="20" max="80"
+                                            name="summary_length" id="summary_length">
+                                        <div class="range__value">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <p>long</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class='flex-col output_options_main output_options_main_desktop '>
+                            <div class="mode_for_desktop">
+                                <div class="output_options">
+                                    <label for="summary_title" class="summary_title active" data-option='1'>
+                                        <img src="https://www.summarizer.org/web_assets/frontend/img/summary.svg?v=1.8"
+                                            alt="Summary" />
+                                        Summary
+                                    </label>
+                                    <label for="show-bullets" class="show-bullets" data-option='2'>
+                                        <img src="https://www.summarizer.org/web_assets/frontend/img/bullets-number.svg?v=1.8"
+                                            alt="Bullets" />
+                                        Show Bullets
+                                    </label>
+                                    <label for="best-line" class="best-line" data-option='3'>
+                                        <img src="https://www.summarizer.org/web_assets/frontend/img/tick-design.svg?v=1.8"
+                                            alt="Best Line" />
+                                        Best Line
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls End -->
+                </div>
+                <div class="flex-col input summarizer-input">
+                    <!-- Output Div COntianer -->
+                    <div class="input__output">
+                        <div class="input__box__container">
+                            <div class="input__box">
+                                <div id="ajaxloaderwrapper">
+    <img src="https://www.summarizer.org/web_assets/frontend/img/ajax-loading.svg?v=1.8"
+        alt="Loading">
+</div>
+
+                                <div class="summorg-input-holder">
+                                    <div class="gradient-hover-effect active">
+                                        <div class="overlay" id="sample-text">
+                                            <img src="https://www.summarizer.org/web_assets/frontend/img/sample-text.svg?v=1.8"
+                                                width="20" height="20" alt="Sample Text">
+                                            <p>Sample Text</p>
+                                        </div>
+                                        <div class="overlay" id="add-url">
+                                            <img src="https://www.summarizer.org/web_assets/frontend/img/add-url.svg?v=1.8"
+                                                width="20" height="20" alt="Add Url">
+                                            <p>Add Url</p>
+                                        </div>
+                                        <div class="overlay" id="paste-text">
+                                            <img src="https://www.summarizer.org/web_assets/frontend/img/paste-text.svg?v=1.8"
+                                                width="20" height="20" alt="Paste Text">
+                                            <p>Paste Text</p>
+                                        </div>
+
+                                        <div class="overlay d-none" id="url-input">
+                                            <input placeholder="https://"
+                                                type="text" name="url" id="url" />
+                                            <div class="loader d-none" id="loader"></div>
+                                            <img src="https://www.summarizer.org/web_assets/frontend/img/clear-input.svg"
+                                                id="clear-url" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="file" id="upload_txt_File_btn">
+
+                                <textarea style="width:100%" onkeyup="wordCount()" name="input-content" class="scroll-div textarea"
+                                    onpaste="onPastedText()" placeholder="Start typing or paste your content here..." id="input_text" cols="30" rows="10"></textarea>
+                                <style>
+    #captcha_container {
+        position: absolute;
+        right: 20px;
+        bottom: 60px;
+        z-index: 100000;
+        display: flex;
+        justify-content: center
+    }
+
+    /* Center alignment */
+    .center {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+<div id="captcha_container" class="">
+    <div id="captcha">
+    </div>
+</div>
+                                <div class="tool_setting_bar input_setting_bar">
+                                    <div class="flex-row items-center gap-20"
+                                        style="flex-direction:row;width:fit-content">
+                                        <div class="dropdown" opened='false'>
+        <span class="dropbtn popup-trigger">
+            <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/us.png" />
+                EN
+            <img style="height: 6px;transform:rotate(180deg)" class="popup-trigger dropdown-arrow"
+                src="https://www.summarizer.org/web_assets/frontend/img/chevron-down.svg?v=1.8"
+                width="10" height="6" alt="Dropdown"></span>
+        <div class="dropdown-content dropdown-content-center language__list popup">
+                                    <a href="https://www.summarizer.org">
+                <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/us.png" /> EN</a>
+                                                                            <a class=" "
+                        href="https://www.summarizer.org/es/resumidor-de-textos">
+                        <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/es.png" />ES</a>
+                                                                                            <a class=" "
+                        href="https://www.summarizer.org/Id/ringkasan-online">
+                        <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/id.png" />ID</a>
+                                                                                            <a class=" "
+                        href="https://www.summarizer.org/br/resumidor-de-texto">
+                        <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/br.png" />BR</a>
+                                                                                            <a class=" "
+                        href="https://www.summarizer.org/fr/résumé-de-texte">
+                        <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/fr.png" />FR</a>
+                                                                                            <a class=" "
+                        href="https://www.summarizer.org/nl/samenvatten">
+                        <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/nl.png" />NL</a>
+                                                                                            <a class=" "
+                        href="https://www.summarizer.org/it/riassunto-online">
+                        <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/it.png" />IT</a>
+                                                                                            <a class=" "
+                        href="https://www.summarizer.org/de/text-zusammenfassen">
+                        <img class="flag" src="https://www.summarizer.org/web_assets/frontend/img/flags/de.png" />DE</a>
+                                                    </div>
+    </div>
+                                        <div data-tooltip="Upload File" id="upload-sm"
+                                            style="min-width:fit-content" class="upload-icon tooltip">
+                                            <label for="upload_txt_File_btn">
+                                                <div class="icon">
+                                                    <img src="https://www.summarizer.org/web_assets/frontend/img/upload-sm.svg?v1.1"
+                                                        alt="Upload file">
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="word-count input_word_box display_none">
+    <div class="counter_container">
+        <span class="input-word-counter word-counter">0</span><span
+            class="word_count_text"> Words</span><span
+            class="allowed_words">/3000</span>
+    </div>
+    
+</div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-5px items-center">
+                                        <div data-tooltip="Clear"
+                                            class="clearButton desktop_visible tooltip result_option"
+                                            style="display:none"><img
+                                                src="https://www.summarizer.org/web_assets/frontend/img/clear.svg?v=1.8"
+                                                alt="clear"><span>Clear</span>
+                                        </div>
+                                        <div id="submit__btn__shadow__root" class="popup-trigger"
+                                            data-init-text="Summarize"
+                                            data-verify-text="Summarizing..."
+                                            data-again-text="Summarize Again"
+                                            data-processing-text="Summarizing...">
+                                            <form>
+                                            </form> 
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="output__container">
+                            <div class="output__box">
+                                                                <div class="textarea">
+                                    <div style="width:100%;" class=" scroll-div" id="output-summary-content">
+                                    </div>
+                                </div>
+                                <div class="tool_setting_bar output_setting_plus">
+                                    <div class="output__Options">
+                                        <div class="word-count"> <span class="output-word-counter word-counter">0</span>
+                                            Words
+                                        </div>
+                                        <div style="display: flex;column-gap: 2px;">
+                                            <div data-tooltip="Clear"
+                                                class="clearButton mobile_visible tooltip result_option"
+                                                style="display: none"><img
+                                                    src="https://www.summarizer.org/web_assets/frontend/img/clear.svg?v=1.8"
+                                                    alt="clear"><span>Clear</span>
+                                            </div>
+
+                                            <div id="copy-text-btn" data-tooltip="Copy"
+                                                onclick="CopyContent('#output-summary-content' , this)"
+                                                class="tooltip result_option on_result_visible">
+                                                <img src="https://www.summarizer.org/web_assets/frontend/img/copy.svg?v=1.8"
+                                                    alt="Copy"><span>Copy</span>
+                                            </div>
+                                            <div id="downloadButton"
+                                                onclick="downloadContent('#output-summary-content' , this)"
+                                                data-tooltip="Download"
+                                                class="tooltip result_option on_result_visible">
+                                                <img src="https://www.summarizer.org/web_assets/frontend/img/download.svg?v=1.8"
+                                                    alt="download"><span>Download</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                            <div class="flex-row flex-grow items-center flex-justify-around" id="after-text-load-controls"
+                    style="margin: auto;width:100%">
+                    <div class="ads_no_for_mobile">
+                        <!-- button-around ads. -->
+<div id="left-btn-ad" class="smz-ad  bg-light left_right_ads"
+    >
+    <!-- <span >ADVERTISEMENT</span> -->
+    
+        <div id="adngin-incontent_1-0"></div>
+    </div>
+
+                    </div>
+                </div>
+                    </div>
+    </section>
+    <!-- TOOL SECTION END -->
+            <div class='container'>
+            <div class="flex-col summary">
+                <div class="content flex-row">
+                    <div class="description">
+                        <h1> AI Summarizer</h1>
+                        <div style="padding-top:10px"><ul><li>AI Text Summarizer shortens the text while preserving all the main points that the text contains.</li><li>Our AI paragraph summarizer ensures accuracy and maintains the original context while summarizing the text.</li><li>You can generate a summary of every type of content, whether an essay or a blog post.</li><li>This free text summarizing tool shows the word count of the content entered in the input box. You can check the word count before and after the summarization.</li></ul><div class="table-responsive">&nbsp;</div></div>
+                    </div>
+                    <div class="description tool_info_container">
+                        <div class="tool_info gradient-hover-effect">
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <img src="https://www.summarizer.org/web_assets/frontend/img/rocket.svg?v=1.8"
+                                        alt="Icon" />
+                                    <p>AI Based</p>
+                                </div>
+                                <div class="feature-text">
+                                    <p>Summarize text with state-of-the-art AI</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <img src="https://www.summarizer.org/web_assets/frontend/img/earth.svg?v=1.8"
+                                        alt="Icon" />
+                                    <p>Supports</p>
+                                </div>
+                                <div class="feature-text">
+                                    <p>Also Supports Advanced English</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <img src="https://www.summarizer.org/web_assets/frontend/img/100.svg?v=1.8"
+                                        alt="Icon" />
+                                    <p>Results</p>
+                                </div>
+                                <div class="feature-text">
+                                    <p>Summary in Bullets &amp; One Line</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- HOW TO SUMMARIZE A TEXT Section -->
+    <div class='container'>
+        <div class="content summary flex-col gap-20">
+            <div class="header">
+                <h2 class="text-center">How to summarize a text?</h2>
+                <p class="text-center">To summarize your text with our AI summarizer, follow the below steps:</p>
+            </div>
+            <div class="feature_lists">
+                <div class="feature_box flex-row gradient-hover-effect"><span
+                        class="number">01</span>Type a text in the input box or upload a file
+                </div>
+
+                <div class="feature_box flex-row gradient-hover-effect"><span
+                        class="number">02</span>Click on the "Summarize" button to generate a summary
+                </div>
+            </div>
+            <div class="feature_box feature_box_large gradient-hover-effect content flex-row">
+                <span class="number">03</span>
+                <div class="description" style='padding-top:15px;'>
+                    <p>When you are done summarizing the text, you can:<strong><br>Download the file:<br></strong>Click on the "<strong>Download</strong>" button and get the summary in .docx format.</p><p><strong>Copy the summarized text:<br></strong>You can also copy the summarized text to the clipboard and paste it anywhere you want.</p><p><strong>Clear text:<br></strong>After downloading or copying the summary, click on the "<strong>Clear</strong>" button to start a new session and generate another summary.</p>
+                </div>
+                <div class="img img-right">
+                    <img loading="lazy"
+                        src="https://www.summarizer.org/web_assets/frontend/img/when_done_summarizing.svg?v=1.8"
+                        alt="How to Summarize a Text" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container' id="features-sec">
+        <div class="flex-col summary">
+            <div class="header text-center">
+                <h2>Feature Of Our AI Summarizer</h2>
+                            </div>
+            <div class="content flex-row">
+                <div class="points_list flex-col gap-30">
+                    <div class="flex-row flex-justify-end gap-10 point_container">
+                        <div class="point gradient-hover-effect flex-row gap-10 ">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            Show the best line
+                        </div>
+                        <div class="point gradient-hover-effect flex-row gap-10">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            Basic understanding
+
+                        </div>
+                    </div>
+                    <div class="flex-row flex-justify-center gap-10 point_container">
+                        <div class="point gradient-hover-effect flex-row gap-10">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            Original article meanings preservation
+                        </div>
+                        <div class="point gradient-hover-effect flex-row gap-10">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            Show in bullets
+                        </div>
+                    </div>
+                    <div class="flex-row flex-justify-start gap-10 point_container">
+                        <div class="point gradient-hover-effect flex-row gap-10">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            Total Safety
+                        </div>
+                        <div class="point gradient-hover-effect flex-row gap-10">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            Set summarization length
+                        </div>
+                    </div>
+                </div>
+                <div class="description">
+                    <h3>Set Summary Length</h3><p>You can manually set summary length with the help of the scroll bar located at the top right of the input box.</p><p>After specifying the length, this AI summary tool generates the summary of your academic writing according to the specified length.</p><h3>Shows Bullets And Best Lines</h3><p>We are providing an option to add bullets in summary. Click on the "<strong>Show bullets</strong>" button and this article summarizer generate a summary of the research article in the form of sentences separated by bullet points.</p><p>Else you can get your summary in the form of a paragraph.</p><p>By selecting the "<strong>Best line</strong>" option, our AI summary generator crawls the entire content and gets back with the best line of content.</p><h3>Summarize Articles</h3><p>One unique feature of our AI article summarizer is the option to summarize published articles. For this, you&rsquo;ve got the &ldquo;<strong>Add URL</strong>&rdquo; feature, paste the URL of your article, and get it summarized.</p><h3>Offer Multiple Languages</h3><p>You can get a summary in various languages offered by this online text summarizer. Before summarization, there is no need to translate the original text into a specific language.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class="flex-col summary">
+            <div class="content flex-row">
+                <div class="description">
+                    <h2> Why Our Summarizer Is Best?</h2>
+                    <p><strong>Features that make this AI text summarizer one of the best online tools are:</strong></p>
+                    <p><ul><li>&nbsp;This free AI summarize tool offers an extensive word count limit.</li><li>It extracts key sentences and phrases using advanced AI techniques.</li><li><strong>100% Data Safety: </strong>we do not store any of users' data to protect the privacy of our users.&nbsp;</li><li>Bullets and the best sentence feature increase the readability.</li><li>Controlling summary length provides more choices for users to modify the final output as per requirements.</li></ul></p>
+                </div>
+                <div class="points_list flex-col gap-30">
+                    <div class="flex-row flex-justify-start gap-10">
+                        <div class="point gradient-hover-effect flex-row gap-10 point_container">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            100% Free
+                        </div>
+                        <div class="point gradient-hover-effect flex-row gap-10 point_container">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            AI Techniques
+                        </div>
+                    </div>
+                    <div class="flex-row flex-justify-center gap-10">
+                        <div class="point gradient-hover-effect flex-row gap-10 point_container">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            100% Data Safety
+                        </div>
+                        <div class="point gradient-hover-effect flex-row gap-10 point_container">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            More Choices
+                        </div>
+                    </div>
+                    <div class="flex-row flex-justify-end gap-10 point_container">
+                        <div class="point gradient-hover-effect flex-row gap-10">
+                            <img src="https://www.summarizer.org/web_assets/frontend/img/tick-dark.svg?v=1.8"
+                                alt="Tick" />
+                            Bullets &amp; Best Sentence
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class="flex-col summary">
+            <div class="content flex-row">
+                <div class="img img-left">
+                    <img loading="lazy"
+                        src="https://www.summarizer.org/web_assets/frontend/img/how_does_tool_work.svg?v=1.8"
+                        alt="How does Summarizing Tool Works?" />
+                </div>
+                <div class="description">
+                    <h2> How Does This Summarizing Tool Work?</h2>
+                    <p><p>Our summarizing tool uses an AI-based algorithm that firstly detects the best sentences from the paragraph and understands the text then proceeds to summarize the content.</p><p>After selecting the best lines from the text, Algorithm gives a score to each selected line based on its accuracy, structure, optimization, quality, length, and other technical factors. Based on the score, the text summarizer AI understands the importance of each line and compares it with the rest of the text.</p><p>By using advanced machine learning and NLP models, AI Summarizer allows you to summarize text according to the main concept of the content just like Editpad text summarizer does.</p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class='container faq__section'>
+        <div class="content summary flex-col gap-20">
+            
+            <div class="body">
+                
+        </div>
+    </div>
+    
+    <style>
+    #other_tools .title{
+        font-size: 32px !important;
+        font-weight: var(--font-weight-extrabold);
+    }
+    #other_tools .other_tools_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: var(--gap-default);
+        width: 80%;
+        margin:auto;
+    }
+
+    #other_tools .other_tools_list .other_tool {
+        flex: 1;
+        background: white;
+        min-width: 32%;
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        border-radius: var(--border-radius-default);
+        border: 1px solid #eee;
+        gap: var(--gap-default);
+        max-width: 31%;
+    }
+    /* #other_tools .other_tools_list .other_tool:not(:last-child) {
+        flex:1;
+    } */
+@media (max-width: 1024px) {
+    #other_tools .other_tools_list .other_tool {
+        max-width:48%;
+    }
+}
+@media (max-width: 768px) {
+    #other_tools .other_tools_list .other_tool {
+        min-width:fit-content;
+        max-width: 100%;
+    }
+}
+</style>
+<section id="other_tools">
+    
+</section>
+    
+    <input type="hidden" name="copy_success" value="Copied">
+    <input type="hidden" name="limit_exceed_popup_message"
+        value="For 3500 Words Limit - &lt;a href=&quot;https://www.summarizer.org/create-new-account&quot;&gt;Sign up &lt;/a&gt;now">
+    <input type="hidden" name="copy_tooltip" value="Copy">
+    <input type="hidden" id="dummyText" value="Education is the process by which a person either acquires or delivers some knowledge to another person. It is also where someone develops essential skills to learn social norms. However, the main goal of education is to help individuals live life and contribute to society when they become older. There are multiple types of education but traditional schooling plays a key role in measuring the success of a person. Besides this, education also helps to eliminate poverty and provides people the chance to live better lives. Let you guys know that this is one of the most important reasons why parents strive to make their kids educate as long as possible. Education is important for everyone as it helps people in living a better life with multiple facilities. It helps individuals to improve their communication skills by learning how to read, write, speak, and listen. It helps people meet basic job requirements and secure better jobs with less effort. The educated population also plays a vital role in building the economy of a nation. Countries with the highest literacy rates are likely to make positive progress in human and economical development. Therefore, it is important for everyone to get the education to live healthy and peaceful life.">
+    <input type="hidden" id="isMobile" value="">
+    <input type="hidden" id="is_sm" value="">
+    <input type="hidden" id="isNexus" value="">
+    <input type="hidden" id="isRobot" value="">
+    <input type="hidden" id="robot" value="">
+
+
+    
+    <script type="text/javascript">
+    function without_cloudflare_captcha(click_time, function_name, body = null,
+        fun =
+        function(token) {
+            function_name(1 + 'CvW39XjKQC0Gc8GZJUjkzvMrU3AubuId4Dx48ZEz', token, body);
+        }) {
+        var now_time = Math.floor(Date.now() / 1000);
+        if (parseInt(now_time - click_time) < 0 || parseInt(now_time - click_time) > 2 || (
+                typeof click_time) != 'number') {
+            return false;
+        }
+        fun(null);
+        return true;
+    }
+</script>
+    
+    
+    
+    <!--Start of Tawk.to Script-->
+        
+        <!--End of Tawk.to Script-->
+    <input type="hidden" id="invisible" value="0x4AAAAAAAUwKvasO0jFqxlt">
+<input type="hidden" id="managed" value="0x4AAAAAAAXnCLHsFfeLvxZQ">
+      <script src=""></script>
+ <script type="text/javascript">
+    var invisible_key = document.getElementById("invisible").value;
+    var managed_key = document.getElementById("managed").value;
+    if (invisible_key.length > 10 && managed_key.length > 10) {
+        function with_cloudflare_captcha(retry, click_time, function_name, theme = null, position = null, body = null,
+            fun =
+            function(
+                token) {
+                var start_val = 0;
+                if (parseInt('1') == 0) {
+                    start_val = 1;
+                } else {
+                    if (!retry) {
+                        start_val = 2;
+                    }
+                }
+                function_name(start_val + 'JurlB6mCkieLwYMSkltXPdVoG16UeZQxPsXvgGcW', token, body);
+            }) {
+            var now_time = Math.floor(Date.now() / 1000);
+            if (parseInt(now_time - click_time) < 0 || parseInt(now_time - click_time) > 3 || (
+                    typeof click_time) != 'number') {
+                return false;
+            }
+            if (parseInt('1') == 0) {
+                fun(null);
+                return true;
+            }
+            if (retry) {
+                var siteKey = invisible_key;
+            } else {
+                var siteKey = managed_key;
+            }
+            var turnstile_obj = turnstile.render(position ?? 'body', {
+                sitekey: siteKey,
+                theme: theme ?? 'light',
+                language: $("html").attr('lang'),
+                callback: function(token) {
+                    turnstile.remove(turnstile_obj);
+                    fun(token);
+                },
+                error: function(error) {
+                    console.log("error calling challenge");
+                    with_cloudflare_captcha(false, (Date.now() / 1000), function_name, body);
+                }
+            });
+        }
+    } else {
+        console.error("Captcha key is invalid");
+    }
+</script> 
+<script>
+    const is_user_premium = 0;
+    const is_tool_premium = 0;
+    const user_id = 0;
+    const parent_id = 2;
+    const tool_id = 2;
+    const current_lang = "en";
+    const redirectTooltip = "Generate";
+    const redirectUrl = "";
+    const showResultButtonsText = "0";
+</script>
+<!-- Footer -->
+<style>
+    .footer-dropdown-center {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        left: 60%;
+        right: 0;
+        bottom: 45px;
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08);
+        gap: 0.3rem;
+    }
+    .footer-a,
+    .footer-p {
+        font-size: 16px !important;
+    }
+
+    .footer-h3 {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+    .footer-mail{
+        display: flex;
+    font-size: 16px;
+    gap: 0.5rem;
+    font-weight: 500;
+    line-height: 24px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 23.44px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+
+
+    .footer-dropdown {
+        background: #F9F9F9;
+        padding: 7px 14px;
+        border-radius: 35px;
+        border: 1px solid #E5E5E5;
+        margin-top: 10px !important;
+        position: relative;
+        width: 240px;
+    }
+
+    .footer-dropdown-arrow {
+        position: absolute;
+        right: 15px;
+    }
+</style>
+<footer class="container-fluid">
+    <div class="container flex-row widget-section dark-fg">
+        <!-- first widget -->
+    </div>
+</div>
+    </div>
+</footer>
+
+<section class="alert_container popup">
+    <div class='alert_box' id="generic_popup" style="display: none">
+        <div class="bg">
+            <span></span>
+        </div>
+        <div class="close_icon popup-close">
+            <img src="https://www.summarizer.org/web_assets/frontend/img/cross.svg?v=1.8"
+                alt="Close" />
+        </div>
+        <img class="alert_img img_generic"
+            src="https://www.summarizer.org/web_assets/frontend/img/no_enough_text.svg?v=1.8"
+            alt="No Enough Text" />
+        <img class="alert_img img_invalid" style="display:none"
+            src="https://www.summarizer.org/web_assets/frontend/img/invalid_file.svg?v=1.8"
+            alt="Invalid File" />
+        <div class="content flex-col  items-left">
+            <div class="flex-col gap-5 items-left">
+                <p class='title'></p>
+                <p class='message'></p>
+            </div>
+                                        <div class="alert_footer flex-row gap-10">
+                    <a href="https://www.summarizer.org/create-new-account"
+                        class='btn btn-dark'>Sign Up</a>
+                    <input type='button' class='popup-close btn btn-light' value='Try Again'>
+                </div>
+            
+        </div>
+    </div>
+</section>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://www.summarizer.org/web_assets/frontend/script/jquery-3.6.1.min.js"></script>
+<script src="https://www.summarizer.org/web_assets/frontend/script/script.js?v=10.70">
+</script>
+        <script>
+            const modesAllow = "1";
+            const emd_is_tool_premium = "0";
+            const words_limit = 3000;
+            const plan_upgrade_popup_limit_head = "Limit Reached";
+            const plan_upgrade_popup_limit =
+                "Buy Premium to get more word limit.";
+            const plan_upgrade_popup_head = "AI Summarizer 2.0";
+            const plan_upgrade_popup =
+                "This mode is premium. To use this mode, you need to upgrade your plan.";
+            const lang = "en";
+            setTimeout(function() {
+                var script = document.createElement("script");
+                script.src =
+                    "https://www.summarizer.org/web_assets/frontend/script/rephrasing-script.js?v=10.70";
+                script.onload = function() {
+                    console.log("Rephrasing script loaded successfully!");
+                };
+                script.onerror = function() {
+                    console.error("Failed to load the rephrasing script.");
+                };
+                document.head.appendChild(script);
+            }, 1000);
+        </script>
+        <script defer type="text/javascript"
+            src="https://www.summarizer.org/web_assets/frontend/script/summarizer.js?v=10.70">
+        </script>
+        <script>
+        $(document).ready(function() {
+
+            // Function to update premium plan URLs
+            function updatePremiumPlanURL() {
+                let activePlan = $(".plan-popup.active");
+                let paypro_product_id = activePlan.data("paypro");
+                let plan_details = '&x-pid=' + activePlan.data("id");
+                let user_id = "0";
+                let premium_plan_url = 'https://store.payproglobal.com/checkout?products[1][id]=' +
+                    paypro_product_id + '&page-template=17680' + plan_details;
+                return [
+                    premium_plan_url, user_id
+                ];
+
+            }
+
+            updatePremiumPlanURL();
+
+            $(".btn_payment_login").on("click", function(e) {
+                e.preventDefault();
+                let plan_url = updatePremiumPlanURL()[0];
+                let user_id = updatePremiumPlanURL()[1];
+                if (user_id != 0) {
+                    let completeUrl = plan_url + '&x-uid=' + user_id;
+                    window.location.href = completeUrl;
+                    return false;
+                }
+                // Set cookies for redirect and payment URL
+                document.cookie = "redirect_to_payment=true; expires=" +
+                    new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
+                document.cookie = "payment_url=" + plan_url +
+                    "; expires=" + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString() +
+                    "; path=/";
+
+                window.location.href = $(this).attr("href");
+            });
+
+            $(".plan-popup").on("click", function() {
+                $(".plan-popup").removeClass('active');
+                $(this).addClass('active');
+                updatePremiumPlanURL();
+            });
+
+            $(".modes__list").on("click", ".mode[data-is_premium='true']", function() {
+                $("#planModal").removeClass('d-none');
+            });
+
+            $(".close").click(function() {
+                $("#planModal").addClass('d-none');
+            });
+
+            // Switch tabs
+            $(".tablinks").click(function() {
+                $(".tablinks").removeClass("active gradient-hover-effect");
+                $(this).addClass("active");
+
+                $(".tabcontent").addClass('d-none');
+                $($(this).data("target")).removeClass('d-none');
+            });
+
+            $(window).click(function(event) {
+                if ($(event.target).is("#planModal")) {
+                    $("#planModal").addClass('d-none');
+                }
+            });
+        });
+    </script>
+<div id="ccpa" style="text-align:center;cursor:pointer;display: none;">Do not share my Personal Information.</div>
+    
+        <script src="https://www.summarizer.org/web_assets/frontend/script/emd/etrack.js"></script>
+</body>
+
+</html>
